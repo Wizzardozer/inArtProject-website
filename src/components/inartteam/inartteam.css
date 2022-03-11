@@ -9,7 +9,7 @@
 }
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 2fr));
+  grid-template-columns: repeat(5, minmax(270px, 2fr));
   padding: 20px;
   grid-column-gap: 20px;
   grid-row-gap: 100px;
