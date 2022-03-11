@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/inArtProject-website/static/css/main.2c1b3eb5.css",
+    "main.js": "/inArtProject-website/static/js/main.98d3626d.js",
+    "static/media/1.PNG": "/inArtProject-website/static/media/1.35c808154e06713e03f4.PNG",
+    "static/media/sdd.pdf": "/inArtProject-website/static/media/sdd.7dd4851a0578252c18ef.pdf",
+    "static/media/srs.pdf": "/inArtProject-website/static/media/srs.d5927a67ed6b07e520dc.pdf",
+    "index.html": "/inArtProject-website/index.html",
+    "main.2c1b3eb5.css.map": "/inArtProject-website/static/css/main.2c1b3eb5.css.map",
+    "main.98d3626d.js.map": "/inArtProject-website/static/js/main.98d3626d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2c1b3eb5.css",
+    "static/js/main.98d3626d.js"
+  ]
+}
