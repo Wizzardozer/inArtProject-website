@@ -1,0 +1,113 @@
+.kitchen-container {
+  display: flex;
+  flex-direction: column;
+  flex: 4;
+  /* background-color: chocolate; */
+  margin: 20px;
+}
+
+.kitchen-card {
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  color: white;
+  background-color: hsl(220, 42%, 25%, 80%);
+  border-radius: 10px;
+  min-height: 20vh;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.kitchen-todos {
+  position: relative;
+}
+
+.kitchen-title {
+  color: hsl(360, 0%, 93%);
+  font-size: 25px;
+}
+
+.kitchen-card-details {
+  /* position: absolute; */
+  padding-top: 25px;
+  padding-left: 10px;
+  padding-bottom: 25px;
+}
+
+.kitchen-card-edit {
+  color: white;
+  position: absolute;
+
+  right: 35px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.kitchen-working-name {
+  position: absolute;
+  bottom: 2px;
+  right: 15px;
+}
+
+.kitchen-card-priority-high {
+  left: 8px;
+  position: absolute;
+  margin-top: 5px;
+  background-color: hsl(360, 100%, 49%);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.kitchen-card-priority-medium {
+  left: 8px;
+  position: absolute;
+  margin-top: 5px;
+  background-color: yellow;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.kitchen-card-priority-low {
+  left: 8px;
+  position: absolute;
+  margin-top: 5px;
+  background-color: green;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.kitchen-button {
+  width: 20%;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  background-color: rgb(39, 37, 37);
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.kitchen-priority-radio {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.kitchen-add-todo {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  color: white;
+  background-color: hsl(220, 42%, 25%, 80%);
+  min-height: 20vh;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-left: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
