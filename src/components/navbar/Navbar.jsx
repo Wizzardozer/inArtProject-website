@@ -43,7 +43,9 @@ const Navbar = () => {
               Google Drive
             </a>
           </li>
-          <li className="listItem">Changelog</li>
+          <li className="listItem">
+            <Link to="/changelog">Changelog</Link>
+          </li>
         </ul>
       </div>
       <div className="right"></div>

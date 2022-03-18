@@ -6,6 +6,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { db } from "./firebase-config";
 import { collection, getDocs } from "firebase/firestore";
+import Changelog from "./pages/changelog/Changelog";
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -35,52 +36,29 @@ class ErrorBoundary extends React.Component {
 function App() {
   const [todos, setTodos] = useState([]);
   const todosCollectionRef = collection(db, "todos");
+  const [completedTodos, setCompletedTodos] = useState([]);
+  const completedTodosRef = collection(db, "completedTodo");
 
   useEffect(() => {
     const getTodos = async () => {
       const data = await getDocs(todosCollectionRef);
       setTodos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-
     getTodos();
   }, []);
 
-  // const [showAddTask, setShowAddTask] = useState(false);
-  // const [tasks, setTasks] = useState([
-  //   {
-  //     id: 1,
-  //     content: "Buy milk",
-  //     price: "$20",
-  //     color: false,
-  //   },
-  //   {
-  //     id: 2,
-  //     content: "Buy sugar",
-  //     price: 10,
-  //     color: true,
-  //   },
-  // ]);
-
-  // //Add Task
-  // const addTask = (task) => {
-  //   const id = Math.floor(Math.random() * 1000) + 1;
-  //   const newTask = { id, ...task };
-  //   setTasks([...tasks, newTask]);
-  // };
-
-  // //delete task
-  // const deleteTask = (id) => {
-  //   setTasks(tasks.filter((task) => task.id !== id));
-  // };
-
-  // //toggle reminder
-  // const toggleReminder = (id) => {
-  //   setTasks(
-  //     tasks.map((task) =>
-  //       task.id === id ? { ...task, color: !task.color } : task
-  //     )
-  //   );
-  // };
+  useEffect(() => {
+    const getCompletedTodos = async () => {
+      const data = await getDocs(completedTodosRef);
+      setCompletedTodos(
+        data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }))
+      );
+    };
+    getCompletedTodos();
+  }, []);
 
   return (
     <ErrorBoundary>
@@ -99,9 +77,12 @@ function App() {
                 // showAddTask={showAddTask}
                 todosCollectionRef={todosCollectionRef}
                 todos={todos}
+                completedTodos={completedTodos}
+                completedTodosRef={completedTodosRef}
               />
             }
           />
+          <Route exact path="/changelog" element={<Changelog />}></Route>
         </Routes>
       </Router>
     </ErrorBoundary>

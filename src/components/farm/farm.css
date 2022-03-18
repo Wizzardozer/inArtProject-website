@@ -105,7 +105,7 @@
   color: white;
   position: absolute;
 
-  right: 35px;
+  right: 55px;
   margin-top: 5px;
   cursor: pointer;
 }
@@ -149,4 +149,12 @@ textarea {
   border: none;
   width: 90%;
   height: 100px;
+}
+
+.farm-card-check {
+  position: absolute;
+  color: green;
+  right: 35px;
+  margin-top: 5px;
+  cursor: pointer;
 }
