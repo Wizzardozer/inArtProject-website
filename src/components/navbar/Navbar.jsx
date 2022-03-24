@@ -59,7 +59,7 @@ const Navbar = ({ user, login, logout, setLoginEmail, setLoginPassword }) => {
             />
             <input
               className="login-password"
-              type="text"
+              type="password"
               placeholder="Password..."
               onChange={(event) => {
                 setLoginPassword(event.target.value);
