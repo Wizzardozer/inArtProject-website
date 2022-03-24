@@ -18,6 +18,14 @@ const Changelog = () => {
           </td>
           <td>3/14/2022</td>
         </tr>
+        <tr>
+          <td>1.02</td>
+          <td>
+            Authentication added so only user that are logged in are able to
+            create,edit,delete, and mark as complete in the todo.
+          </td>
+          <td>3/24/2022</td>
+        </tr>
       </table>
     </div>
   );
