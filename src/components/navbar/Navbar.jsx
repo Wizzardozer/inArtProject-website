@@ -4,7 +4,7 @@ import React from "react";
 import pdf from "../../sdd.pdf";
 import pdf2 from "../../srs.pdf";
 
-const Navbar = () => {
+const Navbar = ({ user, login, logout, setLoginEmail, setLoginPassword }) => {
   return (
     <div className="container">
       <div className="Logo">
@@ -47,8 +47,34 @@ const Navbar = () => {
             <Link to="/changelog">Changelog</Link>
           </li>
         </ul>
+        {!user ? (
+          <div className="login-form">
+            <input
+              className="login-username"
+              type="text"
+              placeholder="Username..."
+              onChange={(event) => {
+                setLoginEmail(event.target.value);
+              }}
+            />
+            <input
+              className="login-password"
+              type="text"
+              placeholder="Password..."
+              onChange={(event) => {
+                setLoginPassword(event.target.value);
+              }}
+            />
+            <button className="login-button" onClick={login}>
+              Login
+            </button>
+          </div>
+        ) : (
+          <button className="logout-button" onClick={logout}>
+            Logout
+          </button>
+        )}
       </div>
-      <div className="right"></div>
     </div>
   );
 };

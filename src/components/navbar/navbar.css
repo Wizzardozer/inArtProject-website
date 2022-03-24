@@ -7,6 +7,45 @@
   background: rgb(30, 30, 30);
   justify-content: flex-start;
   color: white;
+  position: relative;
+}
+
+.login-button {
+  color: white;
+  background: rgb(30, 30, 30);
+  border-radius: 20px;
+  font-size: 25;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 50px;
+}
+
+.logout-button {
+  color: white;
+  background: rgb(30, 30, 30);
+  border-radius: 20px;
+  font-size: 25;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 80px;
+  height: 30px;
+}
+.login-username {
+  position: absolute;
+  right: 240px;
+  width: 150px;
+  top: 20px;
+}
+
+.login-password {
+  position: absolute;
+  right: 80px;
+  width: 150px;
+  top: 20px;
 }
 
 .Logo {

@@ -7,14 +7,14 @@ import { FaMinus, FaCheck } from "react-icons/fa";
 import { db } from "../../firebase-config";
 import { addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore";
 
-const Kitchen = ({ todos, todosCollectionRef, completedTodosRef }) => {
+const Kitchen = ({ todos, todosCollectionRef, completedTodosRef, user }) => {
   const [newName, setNewName] = useState("");
   const [newContent, setNewContent] = useState("");
-  const [newIsComplete, setNewIsComplete] = useState(false);
+  const [newIsComplete] = useState(false);
   const [newLevel] = useState("kitchen");
   const [addTodo, setAddTodo] = useState();
   const [newPriority, setNewPriority] = useState("");
-  const [isEdit, setIsEdit] = new useState(false);
+  const [isEdit] = new useState(false);
 
   const createTodo = async () => {
     if (newPriority) {
@@ -79,100 +79,114 @@ const Kitchen = ({ todos, todosCollectionRef, completedTodosRef }) => {
         <h1>Kitchen</h1>
       </div>
       <div className="kitchen-todos">
-        <div className="kitchen-create-todo">
-          {!addTodo ? (
-            <FaPlus className="add-task" onClick={() => setAddTodo(!addTodo)} />
-          ) : (
-            // <FaPlus className="add-task" onClick={() => setAddTodo(!addTodo)} />
-            <FaMinus className="no-task" onClick={() => setAddTodo(!addTodo)} />
-          )}
-          {addTodo && (
-            <div className="kitchen-add-todo">
-              <label className="kitchen-form-item">
-                <div>Name:</div>
-                <input
-                  placeholder="Name"
-                  type="text"
-                  onChange={(event) => {
-                    setNewName(event.target.value);
-                  }}
-                />
-              </label>
-              <label className="kitchen-form-item">
-                <div>Content:</div>
-                <textarea
-                  placeholder="Content"
-                  type="text"
-                  onChange={(event) => {
-                    setNewContent(event.target.value);
-                  }}
-                />
-              </label>
-              Priority:
-              <div className="kitchen-priority">
-                <input
-                  type="radio"
-                  className="kitchen-priority-radio"
-                  name="priority"
-                  value="high"
-                  onChange={(event) => {
-                    setNewPriority(event.target.value);
-                  }}
-                />
-                High
-                <input
-                  type="radio"
-                  className="kitchen-priority-radio"
-                  name="priority"
-                  value="medium"
-                  onChange={(event) => {
-                    setNewPriority(event.target.value);
-                  }}
-                />
-                Medium
-                <input
-                  type="radio"
-                  className="kitchen-priority-radio"
-                  name="priority"
-                  value="low"
-                  onChange={(event) => {
-                    setNewPriority(event.target.value);
-                  }}
-                />
-                Low
+        {user && (
+          <div className="kitchen-create-todo">
+            {!addTodo ? (
+              <FaPlus
+                className="add-task"
+                onClick={() => setAddTodo(!addTodo)}
+              />
+            ) : (
+              // <FaPlus className="add-task" onClick={() => setAddTodo(!addTodo)} />
+              <FaMinus
+                className="no-task"
+                onClick={() => setAddTodo(!addTodo)}
+              />
+            )}
+            {addTodo && (
+              <div className="kitchen-add-todo">
+                <label className="kitchen-form-item">
+                  <div>Name:</div>
+                  <input
+                    placeholder="Name"
+                    type="text"
+                    onChange={(event) => {
+                      setNewName(event.target.value);
+                    }}
+                  />
+                </label>
+                <label className="kitchen-form-item">
+                  <div>Content:</div>
+                  <textarea
+                    placeholder="Content"
+                    type="text"
+                    onChange={(event) => {
+                      setNewContent(event.target.value);
+                    }}
+                  />
+                </label>
+                Priority:
+                <div className="kitchen-priority">
+                  <input
+                    type="radio"
+                    className="kitchen-priority-radio"
+                    name="priority"
+                    value="high"
+                    onChange={(event) => {
+                      setNewPriority(event.target.value);
+                    }}
+                  />
+                  High
+                  <input
+                    type="radio"
+                    className="kitchen-priority-radio"
+                    name="priority"
+                    value="medium"
+                    onChange={(event) => {
+                      setNewPriority(event.target.value);
+                    }}
+                  />
+                  Medium
+                  <input
+                    type="radio"
+                    className="kitchen-priority-radio"
+                    name="priority"
+                    value="low"
+                    onChange={(event) => {
+                      setNewPriority(event.target.value);
+                    }}
+                  />
+                  Low
+                </div>
+                <button className="kitchen-button" onClick={createTodo}>
+                  Submit
+                </button>
               </div>
-              <button className="kitchen-button" onClick={createTodo}>
-                Submit
-              </button>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
         {todos.map(
           (todo) =>
             todo.level === "kitchen" && (
               <div key={todo.id} className="kitchen-card">
                 <div className={`kitchen-card-priority-${todo.priority}`}></div>
-                <div className="click">
-                  <FaTimes
-                    onClick={() => {
-                      deleteTodo(todo.id);
-                    }}
-                  />
-                </div>
-                <div className="farm-card-check">
-                  <FaCheck
-                    onClick={() => {
-                      completeTodo(todo);
-                    }}
-                  />
-                </div>
-                <div className="kitchen-card-edit">
-                  <FaRegEdit
-                    onClick={() => {
-                      allowEdit(todo.id, todo.isEdit);
-                    }}
-                  />
-                </div>
+                {user && (
+                  <div className="click">
+                    <FaTimes
+                      onClick={() => {
+                        deleteTodo(todo.id);
+                      }}
+                    />
+                  </div>
+                )}
+                {user && (
+                  <div className="farm-card-check">
+                    <FaCheck
+                      onClick={() => {
+                        completeTodo(todo);
+                      }}
+                    />
+                  </div>
+                )}
+                {user && (
+                  <div className="kitchen-card-edit">
+                    <FaRegEdit
+                      onClick={() => {
+                        allowEdit(todo.id, todo.isEdit);
+                      }}
+                    />
+                  </div>
+                )}
                 {todo.isEdit ? (
                   <div className="farm-add-todo">
                     <label className="farm-form-item">
