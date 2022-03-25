@@ -13,8 +13,6 @@ const Todo = ({
 }) => {
   return (
     <div>
-      {console.log(completedTodosRef)}
-
       <div className="todo-container">
         <Farm
           className="farm-cards"

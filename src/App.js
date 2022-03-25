@@ -74,7 +74,7 @@ function App() {
       setTodos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getTodos();
-  }, [todosCollectionRef]);
+  }, []);
 
   useEffect(() => {
     const getCompletedTodos = async () => {
@@ -87,7 +87,7 @@ function App() {
       );
     };
     getCompletedTodos();
-  }, [completedTodosRef]);
+  }, []);
 
   return (
     <ErrorBoundary>
