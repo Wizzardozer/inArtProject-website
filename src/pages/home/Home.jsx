@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <HeroSection />
-      <InartTeam />
+      {/* <InartTeam /> */}
     </>
   );
 };

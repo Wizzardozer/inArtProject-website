@@ -8,7 +8,7 @@ const Navbar = ({ user, login, logout, setLoginEmail, setLoginPassword }) => {
   return (
     <div className="container">
       <div className="Logo">
-        <Link to="/">inART</Link>
+        <Link to="/">InART</Link>
       </div>
       <div className="center">
         <ul className="list">
@@ -43,9 +43,9 @@ const Navbar = ({ user, login, logout, setLoginEmail, setLoginPassword }) => {
               Google Drive
             </a>
           </li>
-          <li className="listItem">
+          {/* <li className="listItem">
             <Link to="/changelog">Changelog</Link>
-          </li>
+          </li> */}
         </ul>
         {!user ? (
           <div className="login-form">

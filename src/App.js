@@ -105,11 +105,6 @@ function App() {
             path="/todo"
             element={
               <Todo
-                // tasks={tasks}
-                // onDelete={deleteTask}
-                // toggleReminder={toggleReminder}
-                // onAdd={addTask}
-                // showAddTask={showAddTask}
                 user={user}
                 todosCollectionRef={todosCollectionRef}
                 todos={todos}

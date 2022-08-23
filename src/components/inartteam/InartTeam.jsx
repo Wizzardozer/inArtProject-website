@@ -4,7 +4,7 @@ import question from "../img/question.png";
 const InartTeam = () => {
   return (
     <div className="cardsTitle">
-      <h1 id="cardsTitle"> inART Team</h1>
+      <h1 id="cardsTitle"> InART Team</h1>
 
       <div className="cards">
         <div className="card cardPrimary">
@@ -74,7 +74,8 @@ const InartTeam = () => {
         </div>
         <div className="card card7">
           <div className="card-container">
-            <img src={question} alt="No img" />
+            <div className="card-back">Linked in</div>
+            <img src={question} alt="No img" className="card-front" />
           </div>
           <div className="card-details">
             <h3>Tony Lee</h3>

@@ -39,6 +39,12 @@
 .card-container {
   position: relative;
   height: 50vh;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+}
+
+.card-container:hover {
+  transform: rotateY(180deg);
 }
 
 img {
@@ -60,4 +66,20 @@ img {
 
 .card-details h4 {
   margin-top: 10px;
+}
+
+.card-front {
+  backface-visibility: hidden;
+}
+
+.card-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: blue; */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
 }
